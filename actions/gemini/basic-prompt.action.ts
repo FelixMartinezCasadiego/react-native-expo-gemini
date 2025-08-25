@@ -1,6 +1,6 @@
 import geminiApi from "../gemini.api";
 
-export const getBasicPrompt = async (prompt: string) => {
+export const getBasicPrompt = async (prompt: string): Promise<string> => {
   try {
     const response = await geminiApi.post(
       `/basic-prompt`,
@@ -13,5 +13,6 @@ export const getBasicPrompt = async (prompt: string) => {
     return response.data;
   } catch (error) {
     console.error("Error with endpoint /basic-prompt", error);
+    return "Error with endpoint /basic-prompt";
   }
 };
