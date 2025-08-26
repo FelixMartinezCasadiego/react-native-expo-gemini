@@ -1,20 +1,20 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { Button, Input, Layout } from "@ui-kitten/components";
-import { KeyboardAvoidingView, Platform } from "react-native";
+import { Button, Input, Layout } from '@ui-kitten/components';
+import { KeyboardAvoidingView, Platform } from 'react-native';
 
-import { useThemeColor } from "@/hooks/useThemeColor";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { useThemeColor } from '@/hooks/useThemeColor';
+import Ionicons from '@expo/vector-icons/Ionicons';
 interface Props {
   attachments?: any[];
   onSendMessage: (message: string, attachments?: any[]) => void;
 }
 
 const CustomInputBox = ({ attachments = [], onSendMessage }: Props) => {
-  const isAndroid = Platform.OS === "android";
-  const iconColor = useThemeColor({}, "icon");
+  const isAndroid = Platform.OS === 'android';
+  const iconColor = useThemeColor({}, 'icon');
 
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
 
   const handleSendMessage = () => {
     // TODO: validations
@@ -22,20 +22,20 @@ const CustomInputBox = ({ attachments = [], onSendMessage }: Props) => {
     console.log({ text });
 
     onSendMessage(text);
-    setText("");
+    setText('');
   };
 
   return (
     <KeyboardAvoidingView
-      behavior={isAndroid ? "height" : "padding"}
+      behavior={isAndroid ? 'height' : 'padding'}
       keyboardVerticalOffset={isAndroid ? 0 : 85}
     >
       {/* Imágenes */}
       <Layout
         style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
           gap: 10,
         }}
       >
@@ -48,8 +48,8 @@ const CustomInputBox = ({ attachments = [], onSendMessage }: Props) => {
       {/* Espacio para escribir y enviar mensaje */}
       <Layout
         style={{
-          flexDirection: "row",
-          alignItems: "center",
+          flexDirection: 'row',
+          alignItems: 'center',
           paddingBottom: isAndroid ? 10 : 20,
         }}
       >
